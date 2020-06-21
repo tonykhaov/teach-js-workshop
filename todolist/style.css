@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+li {
+  list-style-type: none;
+}
+
+header {
+  height: 20vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.todolist {
+  width: 368px;
+  margin: 0 auto;
+}
+
+input[type="text"] {
+  padding: 6px 4px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.todos {
+  max-height: 70vh;
+  overflow-y: scroll;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  padding: 4px 0;
+  font-size: 20px;
+}
+
+.task:nth-child(odd) {
+  background-color: lightgray;
+}
+
+input[type="checkbox"]:checked + .task-name {
+  text-decoration: line-through;
+}
+
+.task-name {
+  flex: 1;
+  margin-left: 4px;
+  text-overflow: clip;
+}
+
+.btn-delete-task {
+  margin-right: 10px;
+}

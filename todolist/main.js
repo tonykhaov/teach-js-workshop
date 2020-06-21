@@ -1,5 +1,5 @@
 const form = document.querySelector("form");
-const ul = document.querySelector("ul");
+const todos = document.querySelector(".todos");
 
 const todoDatabase = JSON.parse(localStorage.getItem("todoDatabase")) || [];
 
@@ -22,14 +22,14 @@ const updateHTML = () => {
   console.log(todoDatabase);
   const HTML = todoDatabase
     .map((task) => {
-      return `<li data-id="${task.id}">
+      return `<li class="task" data-id="${task.id}">
         <input type="checkbox">
-        <span>${task.taskName}</span>
+        <span class="task-name">${task.taskName}</span>
         <button class="btn-delete-task">X</button>
         </li>`;
     })
     .join("");
-  ul.innerHTML = HTML;
+  todos.innerHTML = HTML;
 
   const btnsDeleteTask = document.querySelectorAll(".btn-delete-task");
   btnsDeleteTask.forEach((btn) => btn.addEventListener("click", deleteTask));

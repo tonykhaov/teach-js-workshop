@@ -11,9 +11,9 @@ const formatToDoubleDigits = (number) => {
   return `0${number}`;
 };
 
-const YYYY_MM_DD = `${todayYear}-${formatToDoubleDigits(todayMonth)}-${formatToDoubleDigits(
-  todayDay
-)}`;
+const YYYY_MM_DD = `${todayYear}-${formatToDoubleDigits(
+  todayMonth
+)}-${formatToDoubleDigits(todayDay)}`;
 
-datePicker.max = YYYY_MM_DD;
+datePicker.min = YYYY_MM_DD;
 datePicker.value = YYYY_MM_DD;

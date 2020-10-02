@@ -1,8 +1,10 @@
 const buttonGetData = document.querySelector(".btn-get-data");
-const pText = document.querySelector(".new-data");
+const newDatas = document.querySelector(".new-datas");
+
+const datas = [];
 
 function getNewData() {
-  pText.textContent = "loading...";
+  newDatas.innerHTML = "<p>Loading...</p>";
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (Math.random() <= 0.5) {
@@ -15,15 +17,23 @@ function getNewData() {
 }
 
 function showNewData() {
-  console.log("Fetching new data...");
   getNewData()
     .then((response) => {
       console.log(`Success: here's the new data ${response}`);
-      pText.textContent = response;
+      datas.unshift(response);
     })
     .catch((err) => {
       console.error(`Failure: ${err}`);
-      pText.textContent = err;
+      datas.unshift(err);
+    })
+    .finally(() => {
+      newDatas.innerHTML = datas
+        .map((data) => {
+          return `
+          <li>${data}</li>
+        `;
+        })
+        .join("");
     });
 }
 
